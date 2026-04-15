@@ -13,24 +13,24 @@ import org.springframework.core.io.Resource;
 
 import java.util.List;
 
-@Configuration
+//@Configuration
 public class AiConfig {
 
-    @Value("classpath:data.txt")
-    private Resource dataResource;
-
-    @Bean
-    public VectorStore vectorStore(EmbeddingModel embeddingModel) {
-        SimpleVectorStore vectorStore = SimpleVectorStore.builder(embeddingModel).build();
-        
-        TextReader textReader = new TextReader(dataResource);
-        textReader.getCustomMetadata().put("filename", "data.txt");
-        List<Document> documents = textReader.get();
-        
-        TokenTextSplitter textSplitter = new TokenTextSplitter();
-        List<Document> splitDocuments = textSplitter.apply(documents);
-        
-        vectorStore.add(splitDocuments);
-        return vectorStore;
-    }
+//    @Value("classpath:data.txt")
+//    private Resource dataResource;
+//
+//    @Bean
+//    public VectorStore vectorStore(EmbeddingModel embeddingModel) {
+//        SimpleVectorStore vectorStore = SimpleVectorStore.builder(embeddingModel).build();
+//
+//        TextReader textReader = new TextReader(dataResource);
+//        textReader.getCustomMetadata().put("filename", "data.txt");
+//        List<Document> documents = textReader.get();
+//
+//        TokenTextSplitter textSplitter = new TokenTextSplitter();
+//        List<Document> splitDocuments = textSplitter.apply(documents);
+//
+//        vectorStore.add(splitDocuments);
+//        return vectorStore;
+//    }
 }

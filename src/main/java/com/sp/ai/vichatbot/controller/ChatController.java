@@ -17,7 +17,7 @@ public class ChatController {
     }
 
     @GetMapping
-    public String chat(@RequestParam String message) {
+    public String chat(@RequestParam("message") String message) {
         return chatService.chat(message);
     }
 }
